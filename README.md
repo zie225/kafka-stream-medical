@@ -13,7 +13,7 @@ Requirements:
 The existence of this project is thanks to the pycaret library. I think it is an unusual project.
 
 
-![](https://github.com/turkalpmd/stream-medical-data/blob/master/images/unnamed1.png)
+![](https://github.com/zie225/kafka-stream-medical/blob/main/images/unnamed1.png)
 
 ## Kafka
 
@@ -45,7 +45,7 @@ Some tutorial links;
 
 * docker desktop installing https://www.youtube.com/watch?v=Vplj9b0L_1Y
 
-## You can find the image file of Kafka, Zookeeper and Kafdrop as [docker-compose.yaml in the code folder](https://github.com/turkalpmd/stream-medical-data/blob/master/code/docker-compose.yaml).
+## You can find the image file of Kafka, Zookeeper and Kafdrop as [docker-compose.yaml in the code folder](https://github.com/zie225/kafka-stream-medical/blob/main/code/docker-compose.yaml).
 
 ## Now open a MongoDB account if Kafka Zookeeper is running on Docker.
 
@@ -57,9 +57,9 @@ Some tutorial links;
 * 2 - In the meantime, it is important to give the ip address of your local computer.
     
 
-![](https://github.com/turkalpmd/stream-medical-data/blob/master/images/Screenshot%20from%202022-08-16%2012-15-53.png)
-![](https://github.com/turkalpmd/stream-medical-data/blob/master/images/Screenshot%20from%202022-08-16%2012-16-05.png)
-![](https://github.com/turkalpmd/stream-medical-data/blob/master/images/Screenshot%20from%202022-08-16%2013-00-37.png)
+![](https://github.com/zie225/kafka-stream-medical/blob/main/images/Screenshot%20from%202022-08-16%2012-15-53.png)
+![](https://github.com/zie225/kafka-stream-medical/blob/main/images/Screenshot%20from%202022-08-16%2012-16-05.png)
+![](https://github.com/zie225/kafka-stream-medical/blob/main/images/Screenshot%20from%202022-08-16%2013-00-37.png)
 
 
 ### Lets creating model!
@@ -73,20 +73,20 @@ An imbalanced data compatible with real life, the performance of many improved m
 
 Our results:
 
-![](hhttps://github.com/turkalpmd/stream-medical-data/blob/master/images/Screenshot%20from%202022-08-16%2011-50-09.png)
+![](https://github.com/zie225/kafka-stream-medical/blob/main/images/Screenshot%20from%202022-08-16%2011-50-09.png)
 
 
-#### Raw data and preprocessed data in the [data folder](https://github.com/turkalpmd/stream-medical-data/tree/master/data). 
-
-
-
-
-Using the classifier of the pycaret library, I reached the highest result with the gradientboosting algorithm, and this had an accuracy of around 70% as you can see on kaggle. (Model creating notebook in the [code file](https://github.com/turkalpmd/stream-medical-data/blob/master/code/model.ipynb))
+#### Raw data and preprocessed data in the [data folder](https://github.com/zie225/kafka-stream-medical/tree/main/data). 
 
 
 
 
-After this process, I optimized the model with pycaret and [saved it](https://github.com/turkalpmd/stream-medical-data/blob/master/code/model.pkl).
+Using the classifier of the pycaret library, I reached the highest result with the gradientboosting algorithm, and this had an accuracy of around 70% as you can see on kaggle. (Model creating notebook in the [code file](https://github.com/zie225/kafka-stream-medical/blob/main/code/model.ipynb))
+
+
+
+
+After this process, I optimized the model with pycaret and [saved it](https://github.com/zie225/kafka-stream-medical/blob/main/code/model.pkl).
 
 
 ### Lets create stream data
@@ -98,7 +98,7 @@ I opened a new topic with Kafdrop on Docker.
 
 
 
-![](https://github.com/turkalpmd/stream-medical-data/blob/master/images/Screenshot%20from%202022-08-16%2012-03-59.png)
+![](https://github.com/zie225/kafka-stream-medical/blob/main/images/Screenshot%20from%202022-08-16%2012-03-59.png)
 
 
 
@@ -108,17 +108,17 @@ I opened a new topic with Kafdrop on Docker.
 
 ## I now accept that; pycaret is installed, kafka, kafdrop and zookeeper are running on docker and you are a member of mongoDB.
 
-* 1- Firstly run [kafka_producer.py](https://github.com/turkalpmd/stream-medical-data/blob/master/code/kafka_producer.py)
+* 1- Firstly run [kafka_producer.py](https://github.com/zie225/kafka-stream-medical/blob/main/code/kafka_producer.py)
 *   - This code create data from test data. And push to Kafka topic
 
 
-* 2- Then run [kafka_mongo_consumer.py](https://github.com/turkalpmd/stream-medical-data/blob/master/code/kafka_mongo_consumer.py)
+* 2- Then run [kafka_mongo_consumer.py](https://github.com/zie225/kafka-stream-medical/blob/main/code/kafka_mongo_consumer.py)
     * - This code reading to Kafka topic 
     * - Then predicting
     * - Then adding timestamp
     * - Then push to your MongoDB database
 
 
-* 3- You can collecting data on MongoDB with [pymongo_extraction](https://github.com/turkalpmd/stream-medical-data/blob/master/code/pymongo_extraction.ipynb)
+* 3- You can collecting data on MongoDB with [pymongo_extraction](https://github.com/zie225/kafka-stream-medical/blob/main/code/pymongo_extraction.ipynb)
     * - You can use this data for creating new success model for real data
     * - Even for 1354 patients, it has an accuracy of around 70%.
